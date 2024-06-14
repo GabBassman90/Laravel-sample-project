@@ -1,8 +1,11 @@
 <?php
 
+use App\Http\Controllers\Admin\PhotoController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\MyFirstController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -62,3 +65,5 @@ Route::get('/controller',  [MyFirstController::class, 'index']);
 Route::get('/controller/{param1}/{param2}',  [MyFirstController::class, 'indexWithParams']);
 
 Route::get('/controller-query-string',  [MyFirstController::class, 'indexWithQueryParams']);
+
+Route::resource('/photos', PhotoController::class);
