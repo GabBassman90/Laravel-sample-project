@@ -31,6 +31,15 @@
             <td>{{$photo -> title}}</td>
             <td>{{$photo -> url}}</td>
             <td><img src="{{$photo -> url}}" alt="photo"></td>
+            <td> <a href="{{ route('photos.edit', ['photo' => $photo -> id])}}">EDIT </a></td>
+            <td>
+                <form method='POST' action="{{ route('photos.destroy', ['photo' => $photo->id]) }}">
+                    @csrf
+                    @method('DELETE')
+
+                    <input class="btn btn-danger" type="submit" value="DELETE">
+                </form>
+            </td>
         </tr>
 
         @endforeach
